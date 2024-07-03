@@ -1,0 +1,97 @@
+create table alunos(
+codigo int not null auto_increment primary key,
+nome varchar(255) not null,
+telefone char(8) not null);
+
+
+create table funcionarios(
+id_funcionario int not null auto_increment primary key,
+nome varchar(255) not null,
+CPF int(11) not null,
+departamento int(1) not null,
+CPF_supervisor int(11) not null,
+salario float not null);
+
+
+insert into funcionarios(Nome, cpf, departamento, cpf_supervisor, salario)
+values('Mario José', 10203040231, 3, 98765432198, 3500);
+
+insert into funcionarios(Nome, cpf, departamento, cpf_supervisor, salario)
+values('João Pedro', 23124543234, 3, 76543210987, 7004);
+
+
+update funcionarios set nome = 'Henrique Torres' where id_funcionario = 1;
+
+update funcionarios set departamento = 5 where departamento = 3;
+
+alter table funcionarios drop cpf_supervisor;
+4
+
+insert into alunos(nome)
+values('Henrique Matheus'), ('Marcelo Henrique'), ('Pedro Henrique'), ('Adriano Lucas'), ('Welington Oliveira');
+
+insert into disciplinas(nome)
+values('Engenharia de Software'), ('Matematica Financeira'), ('Economia'), ('Java'), ('Python');
+
+delete * from alunos (nome);
+
+
+ALTER TABLE alunos AUTO_INCREMENT = 1;
+
+
+
+create table matriculados(
+    -> ID_MAT int not null auto_increment primary key,
+    -> matricula int,
+    -> foreign key (matricula) references alunos(matricula),
+    -> ID_DISC int,
+    -> foreign key (ID_DISC) references disciplinas(ID_DISC));
+
+
+
+insert into matriculados (matricula, ID_DISC)
+values (1,3)
+
+insert into endereço (matricula, logradouro, complemento, cep, bairro, cidade)
+values (1, 'Rua 21, Numero 63', 'Casa A', 53409280, 'Jardim Paulista Baixo', 'Paulista');
+
+insert into telefones (matricula, numero)
+values (1, '(81) 97903-4926')
+
+
+ALTER TABLE table_name
+MODIFY COLUMN column_name datatype;
+
+ALTER TABLE endereço
+MODIFY COLUMN matricula int not null;
+
+
+create table telefones(
+id_telefone int not null auto_increment primary key,
+matricula int not null,
+numero varchar(20) not null,
+foreign key (matricula) references alunos(matricula));
+
+
+create table endereço(
+id_endereço int not null auto_increment primary key,
+matricula int not null,
+logradouro varchar(250) not null,
+complemento varchar(250),
+cep int not null,
+bairro varchar(250) not null,
+cidade varchar(250) not null,
+foreign key (matricula) references alunos(matricula));
+
+
+logradouro, complemento, cep, bairro, cidade
+
+
+
+mysqldump -u root -p turma_a >backupHenrique.sql
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+
+
+
