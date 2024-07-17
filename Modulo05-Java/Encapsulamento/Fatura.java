@@ -20,11 +20,9 @@ public class Fatura {
 	public double getTotalFatura() {
 		double total = preco * quantidade;
 		if (total < 0) {
-			total = 0; }
-		
-		if (total = 0.0) {
-			return 0; }
-
+			total = 0;
+		}
+		return total;
 	}
 	
 	public void setNumero(String numero) {
